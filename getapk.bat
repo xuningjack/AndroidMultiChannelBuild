@@ -1,2 +1,0 @@
-cd C:\Users\Administrator\Desktop\Developer\AndroidMultiChannelBuildTool
-python AndroidChannelBuild.py
