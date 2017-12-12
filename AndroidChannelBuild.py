@@ -1,3 +1,5 @@
+#vim: set fileencoding:utf-8
+
 __author__ = 'Jack'
 import os
 import sys
@@ -5,41 +7,50 @@ import shutil
 import zipfile
 
 
-# ç©ºæ–‡ä»¶ ä¾¿äºå†™å…¥æ­¤ç©ºæ–‡ä»¶åˆ°apkåŒ…ä¸­ä½œä¸ºchannelæ–‡ä»¶
+#¿ÕÎÄ¼ş ±ãÓÚĞ´Èë´Ë¿ÕÎÄ¼şµ½apk°üÖĞ×÷ÎªchannelÎÄ¼ş
 src_empty_file = 'info/info.txt'
 f = open(src_empty_file, 'a')
 f.close()
 
-# è·å–æ¸ é“åˆ—è¡¨
+#»ñÈ¡ÇşµÀÁĞ±í
 channel_file = 'info/channels.txt'
 f = open(channel_file)
 lines = f.readlines();
 f.close()
 
-# è·å–æ‰€æœ‰APKæ–‡ä»¶
-apk_path = os.listdir()
+#»ñÈ¡ËùÓĞAPKÎÄ¼ş
+# python3 : os.listdir()¼´¿É£¬ÕâÀïÊ¹ÓÃ¼æÈİPython2µÄos.listdir('.')
+apk_path = os.listdir(".")
 src_apks = []
 for file in apk_path:
     if os.path.isfile(file):
+		# ·Ö¸îÎÄ¼şÃûÓëºó×º
         file_path, file_extension = os.path.splitext(file)
         if file_extension == '.apk':
             src_apks.append(file)
 
-# éå†æ¸ é“å·å¹¶å†™å…¥apk
-
+#±éÀúÇşµÀºÅ²¢Ğ´Èëapk
 for src_apk in src_apks:
     src_apk_file_name = os.path.basename(src_apk)
+	#À©Õ¹ÃûÎªapk
     src_apk_name, src_apk_extension = os.path.splitext(src_apk)
+	#×îÖÕÉú³ÉµÄ¶àÇşµÀapkµÄÃû³Æ
     output_dir = 'output_' + src_apk_name + '/'
+	#Ä¿Â¼²»´æÔÚÔò´´½¨
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     for line in lines:
+		# »ñÈ¡µ±Ç°ÇşµÀºÅ£¬ÒòÎª´ÓÇşµÀÎÄ¼şÖĞ»ñµÃ´øÓĞ\n,ËùÓĞstripÒ»ÏÂ
         target_channel = line.strip()
+		#Æ´½Ó¶ÔÓ¦ÇşµÀºÅµÄapk
         target_apk = output_dir + src_apk_name + "-" + target_channel + src_apk_extension
+		#¸´ÖÆÔ´apkµ½Ä¿±êapkÖĞ
         shutil.copy(src_apk,  target_apk)
+		#Ñ¹Ëõ
         zipped = zipfile.ZipFile(target_apk, 'a', zipfile.ZIP_DEFLATED)
+		#³õÊ¼»¯ÇşµÀĞÅÏ¢
         empty_channel_file = "META-INF/channel_{channel}".format(channel=target_channel)
+		#Ğ´ÈëÇşµÀĞÅÏ¢
         zipped.write(src_empty_file, empty_channel_file)
+		#¹Ø±ÕzipÁ÷
         zipped.close()
-
-
