@@ -5,10 +5,10 @@ Kit support generating multi-channel apk （Android多渠道打包工具）
 1、删除原先友盟中的设置（若没有忽略此步，跳转第2步）： 
 <meta-data android:name="UMENG_CHANNEL" android:value="${channel}"/>
 
-2、添加ChannelUtils类到项目中。只需在程序启动时的Activity中调用此接口设置渠道：
-//友盟统计
-String channel = ChannelUtils.getChannel(this);
-AnalyticsConfig.setChannel(channel);
+2、添加ChannelUtils类到项目中。只需在程序启动时的Activity中调用此接口设置渠道：  
+//友盟统计  
+String channel = ChannelUtils.getChannel(this);  
+AnalyticsConfig.setChannel(channel);  
  
  
 3、具体使用步骤：
