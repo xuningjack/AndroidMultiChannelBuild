@@ -7,7 +7,7 @@ Kit support generating multi-channel apk （Android多渠道打包工具）
 
 2、添加ChannelUtils类到项目中。只需在程序启动时的Activity中调用此接口设置渠道：  
 //友盟统计  
-String channel = ChannelUtils.getChannel(this);  
+String channel = ChannelUtil.getChannel(this);  
 AnalyticsConfig.setChannel(channel);  
  
  
