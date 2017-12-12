@@ -1,4 +1,4 @@
-package com.pwrd.util;
+﻿package com.pwrd.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,17 +14,14 @@ import java.util.zip.ZipFile;
 
 /*
 * ChannelUtil.java
-* Created on  202015/9/17 15:04
-* 版本       修改时间          作者      修改内容
-* V1.0.1    202015/9/17        xd.liu      初始版本
-*
-* Copyright © 2004-2011 Perfect World Co.,Ltd.All rights reserved.
+* @author Jack
 */
 public class ChannelUtil {
 
     private static final String CHANNEL_KEY = "channel";
     private static final String CHANNEL_VERSION_KEY = "channel_version";
     private static String mChannel;
+
     /**
      * 返回市场。  如果获取失败返回""
      * @param context
@@ -33,6 +30,7 @@ public class ChannelUtil {
     public static String getChannel(Context context){
         return getChannel(context, "");
     }
+
     /**
      * 返回市场。  如果获取失败返回defaultChannel
      * @param context
@@ -59,6 +57,7 @@ public class ChannelUtil {
         //全部获取失败
         return defaultChannel;
     }
+
     /**
      * 从apk中获取版本信息
      * @param context
@@ -102,6 +101,7 @@ public class ChannelUtil {
         }
         return channel;
     }
+
     /**
      * 本地保存channel & 对应版本号
      * @param context
@@ -114,6 +114,7 @@ public class ChannelUtil {
         editor.putInt(CHANNEL_VERSION_KEY, getVersionCode(context));
         editor.commit();
     }
+
     /**
      * 从sp中获取channel
      * @param context
@@ -137,6 +138,7 @@ public class ChannelUtil {
         }
         return sp.getString(CHANNEL_KEY, "");
     }
+
     /**
      * 从包信息中获取版本号
      * @param context
