@@ -11,10 +11,10 @@ String channel = ChannelUtil.getChannel(this);
 AnalyticsConfig.setChannel(channel);  
  
  
-3、具体使用步骤：
-(1)Android Studio 2.2 和 Android Gradle 2.2 插件以上版本，需要在build.gradle中设置 v2SigningEnabled false。生成签名混淆包signed.apk。
-(2)将想要批量打包的signed.apk文件拷贝到PythonTool目录下（与py同级），运行py脚本即可打包完成。（生成的渠道apk包在output_** 目录下）
-(3)你可以粘贴下面的渠道到channel.txt中保持它在windows端的可读性。
+3、具体使用步骤：  
+(1)Android Studio 2.2 和 Android Gradle 2.2 插件以上版本，需要在build.gradle中设置 v2SigningEnabled false。生成签名混淆包signed.apk。  
+(2)将想要批量打包的signed.apk文件拷贝到PythonTool目录下（与py同级），运行py脚本即可打包完成。（生成的渠道apk包在output_** 目录下）。  
+(3)你可以粘贴下面的渠道到channel.txt中保持它在windows端的可读性。  
 
 channel.txt在info目录下：   
 DOSPY  
