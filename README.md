@@ -17,7 +17,6 @@ AnalyticsConfig.setChannel(channel);
 (3)你可以粘贴下面的渠道到channel.txt中保持它在windows端的可读性。  
 
 channel.txt在info目录下：   
-DOSPY  
 WANDOUJIA  
 COOLAPK  
 360  
