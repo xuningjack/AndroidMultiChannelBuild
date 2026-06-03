@@ -1,7 +1,11 @@
 # AndroidMultiChannelBuild
 Kit support generating multi-channel apk （Android多渠道打包工具）  
 
+### 项目架构：
+<img src="architecture.png" alt="项目整体架构图" >
 
+
+### 具体调用:
 1、删除原先友盟中的设置（若没有忽略此步，跳转第2步）： 
 <meta-data android:name="UMENG_CHANNEL" android:value="${channel}"/>
 
